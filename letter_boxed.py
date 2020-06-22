@@ -29,7 +29,7 @@ def check_string_ordering(word_list):
 
 # Parsing input.  Give input as abcdef
 try:
-    inp=str(sys.argv[1])
+    inp=str(sys.argv[1]).lower()
     if len(set(inp))!=12:
         error = 'ERROR: input the full twelve letter board as argument!\n'
         error += 'Usage: python letter_boxed.py abcdefghijkl'
@@ -49,8 +49,7 @@ except:
 sides=[inp[0:3],inp[3:6],inp[6:9],inp[9:12]]
 print('Input board is {0}'.format(sides))
 sides=[l.lower() for l in sides]
-all_letters = ''.join(sides)
-alphabet = string.ascii_lowercase
+all_letters = inp
 not_letters = ''.join([a for a in alphabet if a not in all_letters])
 
 # First step is to cut down the word_list to only words whose letters are all
